@@ -1,12 +1,12 @@
 package com.self.coderust.list;
 
-public class crLinkedList {
+public class ILinkedList {
 	
 	private Node head;
 	private int count;
 	
 	
-	public crLinkedList(){
+	public ILinkedList(){
 		
 		head = new Node();
 		count = 0;
@@ -71,7 +71,8 @@ public class crLinkedList {
         return current.getData();
     }
  
-    public boolean remove(int index)
+	// removes the element at the specified position in this list.
+	public boolean remove(int index)
     // removes the element at the specified position in this list.
     {
         // if the index is out of range, exit
@@ -89,6 +90,7 @@ public class crLinkedList {
         count--; // decrement the number of elements variable
         return true;
     }
+ 
  
     public int size()
     // returns the number of elements in this list.
