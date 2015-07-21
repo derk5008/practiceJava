@@ -1,13 +1,13 @@
 package com.self.coderust.list;
 
 public class ILinkedListImp {
-
+ 
 	private Node head;
 	private int count;
 	
 	public ILinkedListImp(){
 		head = new Node();
-		count = 0;
+		count =0;
 	}
 	
 	public int size(){
@@ -16,26 +16,23 @@ public class ILinkedListImp {
 	
 	public Object get(int index){
 		Node current = head;
-		for(int i=0; i<=index && current.next!=null; i++){
-			
+		for(int i=0; i<index+1; i++){
 			current = current.getNext();
-			
 		}
 		
 		return current.getData();
 	}
 	
 	public void append(Object data){
-		
 		Node current = head;
 		Node temp = new Node(data, null);
-		while(current.getNext()!=null){
-			
-			current = current.getNext();
-		}
 		
+		while(current.getNext()!=null){
+			current=current.getNext();
+		}
 		current.setNext(temp);
 		count++;
+		
 	}
 	
 	public void insert(Object data, int index){
@@ -45,36 +42,32 @@ public class ILinkedListImp {
 		for(int i=0; i<index && current.getNext()!=null; i++){
 			current =current.getNext();
 		}
-		temp.setNext(current.getNext());
-		current.setNext(temp);
+		
+	temp.setNext(current.getNext());
+	current.setNext(temp);
 		count++;
 	}
-	
-	
-	public boolean remove(int index ){
+	public boolean remove(int index){
 		Node current = head;
+		
 		for(int i=0; i<index; i++){
-			if(current.next==null){
-				return false; 
-			}
+			if(current.getNext()==null){ 
+				return false;
+						}
 			current = current.getNext();
 		}
+		
 		current.setNext(current.getNext().getNext());
 		count--;
 		return true;
 	}
-	
 	public String toString(){
 		Node current = head;
-		String out ="";
+		String out="";
 		while(current.getNext()!=null){
-			current=current.getNext();
-			out = out+"["+current.getData()+"] ";
+			current = current.getNext();
+			out= out+"["+ current.getData()+"] ";
 		}
-			
 		return out;
-		
 	}
-	
-	
 }

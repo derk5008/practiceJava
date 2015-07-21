@@ -22,18 +22,14 @@ public class ILinkedListTester {
 
         System.out.println("lList - print linkedlist: " + lList);
         System.out.println("lList.size() - print linkedlist size: " + lList.size());
-        System.out.println("lList.get(3) - get 3rd element: " + lList.get(3));
+        System.out.println("lList.get(3) - get 4th element: " + lList.get(3));
         
         lList.insert("B", 2);
         System.out.println("lList.insert:  - insert into 3rd element: " + lList);
 
-        System.out.println("get test: : " + lList.get(0));
-        System.out.println("get test: : " + lList);
-        
         lList.remove(1);
         System.out.println("after remove second element: : " + lList);
         
-        System.out.println("lList.get(3) - get 4th element: " + lList.get(3));
         System.out.println("lList.size() - print linkedlist size: " + lList.size());
         System.out.println("lList - print linkedlist: " + lList);
         
