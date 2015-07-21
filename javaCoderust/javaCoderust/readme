@@ -1,0 +1,15 @@
+Basic Points:
+
+1. Two Classes: Note, List;
+
+2. Every time it is start with "Head": Head is a node, but it is not the Object in list. The first object in List is head.getNext()
+
+3. Head is the first item in list; and last item's link points to null;
+
+4. All process, like "Insert", "Add", "Remove" are playing around with Current and next();
+
+5. Add: loop to the last item;
+
+6. insert/remove: loop to the item right before the wanted index. For example, insert(Obj, 5). The index will stop and point to the 4th item in list
+
+7. In LinkedList, there two private property: Node head, int count

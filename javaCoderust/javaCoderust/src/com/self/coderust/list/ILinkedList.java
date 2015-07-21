@@ -13,16 +13,15 @@ public class ILinkedList {
 		
 	}
 	
+	//this is insert:
 	public void add(Object data){
 		
-		Node node = new Node(data, null);
-		
+		Node node = new Node(data, null);		
 		Node current = head;
 		
-		
+		//run to the last item
 		while(current.getNext()!=null){
 			current = current.getNext();
-			
 			
 		}
 		current.setNext(node);
@@ -36,9 +35,10 @@ public class ILinkedList {
     {
         Node temp = new Node(data, null);
         Node current = head;
+      
         // crawl to the requested index or the last element in the list,
         // whichever comes first
-        for (int i = 1; i < index && current.getNext() != null; i++) {
+        for (int i = 0; i < index && current.getNext() != null; i++) {
         	current = current.getNext();
         }
         // set the new node's next-node reference to this node's next-node
@@ -49,44 +49,43 @@ public class ILinkedList {
         count++;// increment the number of elements variable
     }
 	
-	public Object get(int index)
+	public Object get(int index)  
     // returns the element at the specified position in this list.
     {
-        // index must be 1 or higher
-        if (index < 0)
-            return null;
-        
-        if(index==0){
-        	return head.getData();
-        	}
-        
- 
-        Node current = head;
-        for (int i = 0; i < index; i++) {
-            if (current.getNext() == null)
-                return current;
- 
-            current= current.getNext();
-        }
-        return current.getData();
+		
+		Node current = head;
+
+		// index must be within list
+		if(index<0 || index>count){
+			return null;
+		}
+		
+		for(int i=0; i<index+1 &&current.getNext()!=null ; i++){
+			
+			current = current.getNext();
+		}
+		
+      return current.getData();
     }
  
+
 	// removes the element at the specified position in this list.
-	public boolean remove(int index)
-    // removes the element at the specified position in this list.
-    {
+	public boolean remove(int index){
+		
         // if the index is out of range, exit
-        if (index < 1 || index > size())
+        if (index < 0 || index > size()-1)
             return false;
  
-        Node crunchifyCurrent = head;
-        for (int i = 1; i < index; i++) {
-            if (crunchifyCurrent.getNext() == null)
+        Node current= head;
+        //this loop will stop at element one before the to-be-deleted one
+        for (int i = 0; i < index; i++) {
+        	//this means you want delete an time in somewhere out of list; or the list is empty
+            if (current.getNext() == null)
                 return false;
  
-            crunchifyCurrent = crunchifyCurrent.getNext();
+            current = current .getNext();
         }
-        crunchifyCurrent.setNext(crunchifyCurrent.getNext().getNext());
+        current.setNext(current.getNext().getNext());
         count--; // decrement the number of elements variable
         return true;
     }
@@ -99,11 +98,11 @@ public class ILinkedList {
     }
  
     public String toString() {
-        Node crunchifyCurrent = head.getNext();
+        Node current = head.getNext();
         String output = "";
-        while (crunchifyCurrent != null) {
-            output += "[" + crunchifyCurrent.getData().toString() + "]";
-            crunchifyCurrent = crunchifyCurrent.getNext();
+        while (current != null) {
+            output += "[" + current.getData().toString() + "]";
+            current = current.getNext();
         }
         return output;
     }
