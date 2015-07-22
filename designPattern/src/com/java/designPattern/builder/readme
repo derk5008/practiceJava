@@ -1,0 +1,24 @@
+1. In Person sample: Builder is inside Person class as a static class;
+2. Person only has private constuctor;
+3. Person's fields are get from builder;
+4 New Person are create by calling Person's build function, in which a new builder instance is created. 
+
+5. Pay attention of following fucntion: 
+
+public People.Builder phone(String val){
+			this.phone= val;
+			return this;
+		}
+		
+6. To create new instance, we actually start from creating a new Builder		
+
+
+
+
+Key Point: 
+
+a. static builder class;
+b. builder self populate function;
+c. build() is in Builder;
+d. private People constructor
+e. static get instance function in People

@@ -4,7 +4,7 @@ public class ILinkedListTester {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ILinkedListImp lList = new ILinkedListImp();
+		ILinkedListV2 lList = new ILinkedListV2();
 		 
         // add elements to LinkedList
         lList.append("1");
