@@ -5,7 +5,6 @@ public class ILinkedListTester {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ILinkedListV2 lList = new ILinkedListV2();
-		 
         // add elements to LinkedList
         lList.append("1");
         lList.append("2");
@@ -19,20 +18,13 @@ public class ILinkedListTester {
          * class.
          */
         
-
-        System.out.println("lList - print linkedlist: " + lList);
-        System.out.println("lList.size() - print linkedlist size: " + lList.size());
-        System.out.println("lList.get(3) - get 4th element: " + lList.get(3));
         
-        lList.insert("B", 2);
-        System.out.println("lList.insert:  - insert into 3rd element: " + lList);
-
-        lList.remove(1);
-        System.out.println("after remove second element: : " + lList);
         
-        System.out.println("lList.size() - print linkedlist size: " + lList.size());
-        System.out.println("lList - print linkedlist: " + lList);
         
+        
+        System.out.println("lList - print linkedlist before reverse: "+lList.size()+": "+ lList);
+       lList.reverseListItearator();
+        System.out.println("lList - print linkedlist after reverse: "+lList.size()+": "+ lList);
         
         
 	}

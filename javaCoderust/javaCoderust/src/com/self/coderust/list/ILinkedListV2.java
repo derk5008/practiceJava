@@ -1,5 +1,9 @@
 package com.self.coderust.list;
 
+import com.sun.org.apache.bcel.internal.generic.LLOAD;
+
+import sun.security.provider.certpath.OCSP.RevocationStatus;
+
 public class ILinkedListV2 {
 
 	private int count;
@@ -22,7 +26,17 @@ public Object get(int index){
 	}
 	return current.getData();
 }
+
+public Node getNode(int index){
+	Node current = head;
 	
+	for(int i=0; i<index+1&&current.getNext()!=null; i++){
+		
+		current = current.getNext();
+		
+	}
+	return current;
+}
 	
 public int size(){
 	return count;
@@ -72,6 +86,83 @@ public boolean remove(int index){
 	count--;
 	return true;
 }
+
+
+
+
+
+public void reverseBasic(){
+	
+	Node current = head;
+	int endPoint = count;
+	
+	for(int i=0; i<endPoint; i++){
+		current =current.getNext();
+		this.insert(current.getData(), endPoint);
+	}
+	
+	for(int i=0; i<endPoint; i++){
+		remove(0);
+	}
+	
+	
+}
+
+public void reverseBasic(int index){
+	
+	Node current=head;
+	int endPoint = count;
+	for(int i=0; i<index; i++){
+	current = current.getNext();	
+	}
+	
+	for(int i=index; i<endPoint; i++){
+		current=current.getNext();
+		this.insert(current.getData(), endPoint);
+	}
+	
+	for(int i=index; i<endPoint; i++){
+		this.remove(index);
+	}
+
+}
+
+
+
+public void reverseListItearator(){
+	
+	  Node previousNode=head;  
+	  Node nextNode;  
+	  Node currentNode=head.getNext();
+	  while(currentNode!=null)  
+	  {  
+	   nextNode=currentNode.getNext();  
+	  // reversing the link 
+	   if(previousNode==head){
+		   currentNode.setNext(null);
+		   head.setNext(nextNode);
+	   }else {
+	   currentNode.setNext(previousNode);
+	   }// moving currentNode and previousNode by 1 node  
+	   previousNode=currentNode;  
+	   
+	   currentNode=nextNode;
+	   System.out.println("now current list is: "+this);
+	  }
+	
+	
+}
+
+public static Node reverseRecursive(Node node) {  
+    if (node == null || node.next == null) {  
+        return node;  
+    }  
+ 
+    Node remaining = reverseRecursive(node.next);  
+    node.next.next = node;  
+    node.next = null;  
+    return remaining;  
+}  
 
 
 public String toString(){

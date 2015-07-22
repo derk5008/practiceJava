@@ -1,4 +1,4 @@
-Basic Points:
+Basic LIST:
 
 1. Two Classes: Note, List;
 
@@ -13,3 +13,7 @@ Basic Points:
 6. insert/remove: loop to the item right before the wanted index. For example, insert(Obj, 5). The index will stop and point to the 4th item in list
 
 7. In LinkedList, there two private property: Node head, int count
+
+
+RESERVSE LIST:
+
