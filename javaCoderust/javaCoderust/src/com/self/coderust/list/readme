@@ -17,3 +17,48 @@ Basic LIST:
 
 RESERVSE LIST:
 
+Solution one: Iterator:
+Key point: Simply reverse the link between two nodes. 
+Have three nodes: Previous, current and next;
+1. Assign currentNode.next to previousNode to reverse the link. If it is a start node, set previous node as null;
+2. In each iteration, move currentNdoe and previous Node by 1 node: in code, 
+previousNode=currentNode;  
+currentNode=nextNode;
+3. make sure reset the Head node...
+head.setNext(currentNode);
+
+Code:
+
+Node previous = null;
+	Node next;
+	Node current=head.getNext();
+	
+	while(current!=null){
+		next = current.getNext();
+		current.setNext(previous);
+		
+		previous=current;
+		head.setNext(current);
+		current=next;
+
+
+--A future question: reverse from one of node:
+Then we need add a cut point node:
+
+	Node previous=null;
+	Node cutPoint = getNode(index-1);
+	Node next;
+	Node current = getNode(index);
+	while(current!=null){
+		next = current.getNext();
+		current.setNext(previous);
+		previous=current;
+		cutPoint.setNext(current);
+		current = next;
+	}
+
+
+
+
+Solution two: Recursive:
+

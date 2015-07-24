@@ -10,6 +10,14 @@ public class ILinkedListV2 {
 	private Node head;
 
 	
+	public Node getHead() {
+		return head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
+	}
+
 	public ILinkedListV2(){
 		count=0;
 		head = new Node();
@@ -45,13 +53,23 @@ public int size(){
 
 public void append(Object data){
 
-	Node current = head;
-	Node temp = new Node(data);
-	while(current.getNext()!=null){
-		current = current.getNext();
-	}
-	current.setNext(temp);
-	count++;
+//	Node current = head;
+//	Node temp = new Node(data);
+//	while(current.getNext()!=null){
+//		current = current.getNext();
+//	}
+//	current.setNext(temp);
+//	count++;
+
+Node current = head;
+while(current.getNext()!=null){
+	
+	current= current.getNext();
+	
+}
+Node temp = new Node(data);
+current.setNext(temp);
+
 }
 	
 
@@ -131,40 +149,64 @@ public void reverseBasic(int index){
 
 public void reverseListItearator(){
 	
-	  Node previousNode=head;  
-	  Node nextNode;  
-	  Node currentNode=head.getNext();
-	  while(currentNode!=null)  
-	  {  
-	   nextNode=currentNode.getNext();  
-	  // reversing the link 
-	   if(previousNode==head){
-		   currentNode.setNext(null);
-		   head.setNext(nextNode);
-	   }else {
-	   currentNode.setNext(previousNode);
-	   }// moving currentNode and previousNode by 1 node  
-	   previousNode=currentNode;  
-	   
-	   currentNode=nextNode;
-	   System.out.println("now current list is: "+this);
-	  }
+//	  Node previousNode=null;  
+//	  Node nextNode;  
+//	  Node currentNode = head.getNext();
+//	  while(currentNode!=null)  
+//	  {  
+//		  
+//		  nextNode=currentNode.getNext();  
+//		  // reversing the link  
+//		  currentNode.setNext(previousNode);  
+//		  // moving currentNode and previousNode by 1 node
+//		   previousNode=currentNode;  
+//		   head.setNext(currentNode);
+//		   currentNode=nextNode;
+//		  
+//	  }
 	
+Node previous =null;
+Node current=head.getNext();
+Node next;
+
+while(current!=null){
+	next = current.getNext();
+	current.setNext(previous);
+	
+	
+	previous = current;
+	head.setNext(current);
+	current=next;
 	
 }
 
-public static Node reverseRecursive(Node node) {  
-    if (node == null || node.next == null) {  
-        return node;  
-    }  
+
+
+}
+
+
+public void reverseFrom(int index){
+	
+	
+	Node previous=null;
+	Node cutPoint = getNode(index-1);
+	Node next;
+	Node current = getNode(index);
+	while(current!=null){
+		
+		next = current.getNext();
+		current.setNext(previous);
+		previous=current;
+		cutPoint.setNext(current);
+		current = next;
+		
+	}
+ 	
+	
+	
+}	
+
  
-    Node remaining = reverseRecursive(node.next);  
-    node.next.next = node;  
-    node.next = null;  
-    return remaining;  
-}  
-
-
 public String toString(){
 	
 	String out ="";
