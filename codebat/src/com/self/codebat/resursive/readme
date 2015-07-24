@@ -1,1 +1,6 @@
 The Key of Recursive is "self call" and "quit point"
+
+When writing a recursive algorithm, you need to think of two things.
+
+What are my end states?
+How do I reduce the problem complexity?
