@@ -6,7 +6,21 @@ public class Fibonacci {
 	public static void main(String[] args){
 		
 		
-		System.out.println(fib(5));
+		System.out.println(fibs(5));
+		
+	}
+	
+	
+	
+	public static int fibs(int n){
+		
+		if(n<=1){
+			return 1;
+		}else {
+			return fibs(n-1)+fibs(n-2);
+		}
+		
+		
 		
 	}
 	
