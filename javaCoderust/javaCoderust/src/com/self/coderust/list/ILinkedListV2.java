@@ -165,23 +165,31 @@ public void reverseListItearator(){
 //		  
 //	  }
 	
-Node previous =null;
-Node current=head.getNext();
-Node next;
 
-while(current!=null){
-	next = current.getNext();
-	current.setNext(previous);
+	Node previous=null;
+	Node next;
+	Node current = head.getNext();
+	
+	while(current!=null){
+		
+		current.setNext(previous);
+		previous = current;
+		
+		
+		next = current.getNext();
+		head.setNext(current);
+		
+		current =next;
+	
+		
+		
+		
+		
+		
+	}
+			
 	
 	
-	previous = current;
-	head.setNext(current);
-	current=next;
-	
-}
-
-
-
 }
 
 
