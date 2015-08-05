@@ -69,10 +69,9 @@ while(current.getNext()!=null){
 }
 Node temp = new Node(data);
 current.setNext(temp);
-
+count++;
 }
 	
-
 
 public void insert(Object data, int index){
 	
@@ -181,16 +180,11 @@ public void reverseListItearator(){
 		
 		current =next;
 	
-		
-		
-		
-		
-		
 	}
-			
-	
 	
 }
+
+
 
 
 public void reverseFrom(int index){
